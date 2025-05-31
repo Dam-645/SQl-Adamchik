@@ -1,4 +1,6 @@
---Практ1
+Практика1
+
+--задание4
 select distinct t.Tname
 from T t
 Join STD st on t.Tnum = st.Tnum
@@ -6,56 +8,62 @@ Join D d on st.Dnum = d.Dnum
 Join S s on st.Snum = s.Snum
 where d.City = s.City;
 
+--задание5
 select distinct s.Sname
 from S s
 Join STD st on s.Snum =st.Snum
 Join D d on st.Dnum = d.Dnum
 where d.Dnum = 'D1';
 
+--задание6
 select distinct D.City AS CityFrom, S.City AS CityTo
 from D
 Join STD on D.Dnum = STD.Dnum
 Join S on STD.Snum = S.Snum
 where D.City != S.City;
 
+--задание7
 select distinct t.Tnum
 from T t
 Join STD st on t.Tnum = st.Tnum
 Join S s on st.Snum = s.Snum
 where s.Status > 50;
-
 ---------------------------------------
---Практ2
+Практика2
+
+--задание6
 select distinct s.Sname
 from S s
 where s.Status between 50 and 100;
 
+--задание7
 select count(distinct s.Snum)
 from S s
 where s.City = 'Москва';
 
+--задание8
 select SUM(t.Price * st.Kolvo) AS TotalCost
 from T t
 Join STD st on t.Tnum = st.Tnum
 Join D d on st.Dnum = d.Dnum
 where d.Dnum = 'D1';
 
-select 
-    s.Sname, 
-	AVG(t.Price) AS AvgPrice
-from 
-    S 
+--задание9
+select s.Sname, AVG(t.Price) AS AvgPrice
+from  S 
 Join STD on S.Snum = STD.Snum
 Join T on STD.Tnum = T.Tnum
-Group by 
-     S.Sname;
+Group by S.Sname;
 
+--задание10
 select distinct City from D
 union
 select distinct City from s;
 
 -------------------------------------------
---Практ3
+Практика3
+
+--задание7
 select distinct st.Snum
 from STD st
 where st.Kolvo > (
@@ -65,17 +73,19 @@ where st.Kolvo > (
 );
 GO
 
+--задание8
 select s.Snum
 from S s
 where s.Status < (select Status from S where Snum = 'S1');
 GO
 
+--задание9
 insert into Tovar_Temp
 select *
 from T
 where Tnum in (select Tnum from T where Price > 1000 and EdIzm = 'пачка');
 
-
+--задание10
 select Tnum, Tname, Price, EdIzm, City
 From T
 where Price > 1000 and EdIzm = 'пачка';
@@ -85,5 +95,6 @@ update T
 set Price = Price * 0.85
 where City = 'Москва' and EdIzm like '%10 кг%'
 
+--задание11
 delete from S
 where Status < 20;
