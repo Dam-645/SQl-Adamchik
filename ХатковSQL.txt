@@ -1,4 +1,4 @@
-Практ 1
+--Практ1
 select distinct t.Tname
 from T t
 Join STD st on t.Tnum = st.Tnum
@@ -25,7 +25,7 @@ Join S s on st.Snum = s.Snum
 where s.Status > 50;
 
 ---------------------------------------
-Практ 2
+--Практ2
 select distinct s.Sname
 from S s
 where s.Status between 50 and 100;
@@ -55,13 +55,13 @@ union
 select distinct City from s;
 
 -------------------------------------------
-Практ 3
+--Практ3
 select distinct st.Snum
 from STD st
 where st.Kolvo > (
     select MAX(st2.Kolvo)
-	from STD st2
-	where st2.Snum = 'S1'
+    from STD st2
+    where st2.Snum = 'S1'
 );
 GO
 
