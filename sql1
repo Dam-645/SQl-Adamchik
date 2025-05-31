@@ -1,26 +1,26 @@
 --задание4
-select DISTINCT T.Tname
+select distinct T.Tname
 from T, STD, D, S
 where T.Tnum = STD.Tnum 
 and D.Dnum = STD.Dnum 
 and S.Snum = STD.Snum 
 and S.City = D.City;
   
-  --задание5
-SELECT DISTINCT S.Sname
-FROM S, STD
-WHERE S.Snum = STD.Snum 
-AND STD.Dnum = 'D1';
+--задание5
+select distinct S.Sname
+from S, STD
+where S.Snum = STD.Snum 
+and STD.Dnum = 'D1';
   
  --задание6
-SELECT DISTINCT S.City AS SupplierCity, D.City AS OrganizationCity
-FROM S, D, STD
-WHERE S.Snum = STD.Snum 
-AND D.Dnum = STD.Dnum;
+select distinct S.City AS SupplierCity, D.City AS OrganizationCity
+from S, D, STD
+where S.Snum = STD.Snum 
+and D.Dnum = STD.Dnum;
   
-  --задание7
-SELECT DISTINCT T.Tnum
-FROM T, STD, S
-WHERE T.Tnum = STD.Tnum 
-AND S.Snum = STD.Snum 
-AND S.Status > 50;
+--задание7
+select distinct T.Tnum
+from T, STD, S
+where T.Tnum = STD.Tnum 
+and S.Snum = STD.Snum 
+and S.Status > 50;
